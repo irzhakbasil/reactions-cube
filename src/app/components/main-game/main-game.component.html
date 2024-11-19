@@ -1,1 +1,52 @@
-<p>main-game works!</p>
+<div class="app-container">
+    <div class="title-container">
+        <app-button 
+            [buttonClass]="'black-button'"
+            (click)="goBack()"
+            [buttonText]="'<='"></app-button>
+        <h1>{{ title | uppercase }}</h1>
+    </div>
+    <div class="game-controls-container">
+      <div class="controls">
+        <app-button 
+            (buttonClicked)="increaseSize()" 
+            buttonText="+"
+            [disabled]="gameStatusText === gameStatusTextTextEnum.GAME_IN_PROGRESS"
+            ></app-button>
+        <app-button
+            (buttonClicked)="decreaseSize()" 
+            buttonText="-"
+            [disabled]="gameStatusText === gameStatusTextTextEnum.GAME_IN_PROGRESS"
+            ></app-button>
+      </div>
+      <app-input
+        [type]="'number'" 
+        [placeholder]="'time in millisecons'" 
+        [formControl]="inputFormControl"
+        ></app-input>
+      <app-button
+        [disabled]="gameStatusText === gameStatusTextTextEnum.GAME_IN_PROGRESS"
+        [width]="208"
+        (buttonClicked)="mainActionButtonClicked()"
+        [disabled]="false" 
+        [buttonText]='gameStatusText'
+        ></app-button>
+    </div>
+    <div class="game-field">
+        <span class="scores">{{'Player '| uppercase}}<span class="player-score-count">{{playerWins}}</span></span>
+        <div class="matrix-container">
+            <ng-container *ngFor="let row of matrix; let i = index">
+              <div class="row">
+                <ng-container *ngFor="let cell of row; let j = index">
+                  <game-cell
+                    (roundResults)="checkGameResults($event)"
+                    [startCounter]="matrix[i][j]" 
+                    [cubeSize]="cubeSize">
+                  </game-cell>
+                </ng-container>
+              </div>
+            </ng-container>
+          </div>
+          <span class="scores">{{'Machine ' | uppercase}}{{computerWins}}</span>
+    </div>
+  </div>

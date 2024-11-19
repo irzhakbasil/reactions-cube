@@ -6,4 +6,7 @@
 html, body {
     background-color: #050f05;
     font-family: 'Doto';
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
 }

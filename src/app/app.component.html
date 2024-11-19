@@ -1,30 +1,27 @@
-<div class="app-container">
-  <h1>{{title | uppercase}}</h1>
-  <div class="game-controls-container">
-    <div class="controls">
-      <app-button (buttonClicked)="increaseSize()" buttonText="+"></app-button>
-      <app-button (buttonClicked)="decreaseSize()" buttonText="-"></app-button>
-    </div>
-    <app-input [type]="'number'" [placeholder]="'time in millisecons'" ></app-input>
+@if (!selectedGame) {
+  <div class="game-selection-container">
+    <h1>{{ title | uppercase }}</h1>
     <app-button
-      [disabled]="gameStatusText === gameStatusTextTextEnum.GAME_IN_PROGRESS"
-      [width]="208"
-      (buttonClicked)="mainActionButtonClicked()"
-      [disabled]="false" 
-      [buttonText]='gameStatusText'
+      [buttonIdentifier]="gameNamesEnum.PLAYER_REACTION_TIME"
+      (buttonClicked)="gameSelected($event)" 
+      [buttonText]="'Player reaction check'"
       ></app-button>
+    <app-button 
+      [buttonIdentifier]="gameNamesEnum.REACTION_CUBE"
+      (buttonClicked)="gameSelected($event)" 
+      [buttonText]="'Reaction cube'"
+    ></app-button>
   </div>
-<div class="matrix-container">
-  <ng-container *ngFor="let row of matrix; let i = index">
-    <div class="row">
-      <ng-container *ngFor="let cell of row; let j = index">
-        <game-cell
-          (roundResults)="checkGameResults($event)"
-          [startCounter]="matrix[i][j]" 
-          [cubeSize]="cubeSize">
-        </game-cell>
-      </ng-container>
-    </div>
-  </ng-container>
-</div>
-</div>
+}
+
+@if(selectedGame === gameNamesEnum.REACTION_CUBE) {
+  @defer {
+    <app-main-game (closeGame)="closeCurrentGame()"></app-main-game>
+  }
+}
+
+@if(selectedGame === gameNamesEnum.PLAYER_REACTION_TIME) {
+  @defer {
+    <app-check-reaction-time></app-check-reaction-time>
+  }
+}

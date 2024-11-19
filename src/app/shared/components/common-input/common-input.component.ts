@@ -2,6 +2,7 @@ import { Component, Input, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessorDirective } from '../../control-value-accessor-directive/control-value-accessor.directive';
+import { ValidationErrorsComponent } from '../validation-errors/validation-errors.component';
 
 type InputType = 'text' | 'number' | 'email' | 'password';
 const standardWidth = '165';
@@ -10,7 +11,7 @@ const standardWidth = '165';
   templateUrl: './common-input.component.html',
   styleUrls: ['./common-input.component.scss'],
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, ValidationErrorsComponent],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

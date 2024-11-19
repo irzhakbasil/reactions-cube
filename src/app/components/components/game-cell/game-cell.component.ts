@@ -2,9 +2,10 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Subject, timer } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
-import { ConditionalBackgroundDirective } from '../../../directives/background.directive';
 import { GameCellConditionEnum } from '../../../enums/app-colors-enum';
+import { ConditionalBackgroundDirective } from '../../../directives/background.directive';
 import { gameCellObject } from '../../../interfaces/cameCellObjectInterface';
+import { GameNames } from '../../../app.component';
 
 export interface RoundResults {
   cellCondition: GameCellConditionEnum,
@@ -26,6 +27,8 @@ export class GameCellComponent {
       this.onCounterStart(value.miliseconds);
     }
   }
+
+  @Input() gameName!: GameNames;
 
   @Input() cubeSize = 40;
 
