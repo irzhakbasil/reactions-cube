@@ -1,0 +1,18 @@
+button {
+    font-size: 2em;
+    font-family: 'Doto';
+    font-weight: 700;
+    &:hover {
+      cursor: pointer;
+      color: #3779de;
+    }
+  }
+  button:disabled,
+  button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    &:hover {
+      cursor: not-allowed;
+    }
+  }

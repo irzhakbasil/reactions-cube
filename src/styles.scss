@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+    font-family: 'Doto';
+    src: url('./app/assets/Doto-VariableFont_ROND\,wght.ttf') format('truetype');
+}
+
+html, body {
+    background-color: #050f05;
+    font-family: 'Doto';
+}

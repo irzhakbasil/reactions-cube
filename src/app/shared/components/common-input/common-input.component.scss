@@ -1,0 +1,25 @@
+.dvs-form-control {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    flex: 1;
+    min-height: 0;
+    font-family: 'Doto';
+    font-weight: 700;
+    text-indent: 10px;
+    font-size: 30px;
+    box-sizing: border-box;
+  }
+
+  input:focus-visible {
+    outline: none;
+}
+
+input::placeholder {
+    color: #999;
+    font-style: italic;
+    font-size: 11px;
+   }
