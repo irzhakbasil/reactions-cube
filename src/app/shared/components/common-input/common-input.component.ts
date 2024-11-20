@@ -58,18 +58,18 @@ export class InputComponent<T> extends ControlValueAccessorDirective<T> {
         (event.keyCode < 96 || event.keyCode > 105)) {
         event.preventDefault();
       }
-    }
 
-    const input = event.target as HTMLInputElement;
-    const value = input.value;
-    const selectionStart = input.selectionStart;
-
-    // Handle zero input
-    if (event.key === '0') {
-      // Prevent multiple leading zeros
-      if (value === '0' || (value === '' && selectionStart === 0)) {
-        event.preventDefault();
-        return;
+      const input = event.target as HTMLInputElement;
+      const value = input.value;
+      const selectionStart = input.selectionStart;
+  
+      // Handle zero input
+      if (event.key === '0') {
+        // Prevent multiple leading zeros
+        if (value === '0' || (value === '' && selectionStart === 0)) {
+          event.preventDefault();
+          return;
+        }
       }
     }
   }
