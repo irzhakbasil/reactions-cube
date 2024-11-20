@@ -1,67 +1,67 @@
-.game-container {
-    .title-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-    }
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    h1 {
-      text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-      color: #3779de;
-      font-size: 3em;
-      font-weight: 700;
-      margin: 0;
-    }
-    .game-field {
-        display: flex;
-        .scores {
-            padding: 5px;
-            font-size: 2em;
-            color: #fff;
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-        }
-        .scores-player {
-          letter-spacing: 6px;
-        }
-        .player-score-count {
-            transform: translateX(-20px);
-            color: #fff;
-            writing-mode: vertical-rl;
-            text-orientation: upright;
-        }
-        .matrix-container {
-            box-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-            border: 5px solid #3779de;
-            width: fit-content;
-            padding: 15px;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 3px; /* Vertical gap between rows */
-            justify-content: center;
-            align-items: center;
-          }
-    }
-      .row {
-        display: flex;
-        gap: 3px; /* Horizontal gap between cells */
-      }
-      .game-controls-container {
-        display: flex;
-        gap: 10px;
-        margin-top: 10px;
-        flex-direction: row;
-        margin-bottom: 10px;
-        .controls {
-          border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-        }
-      }
-  }
+// .game-container {
+//     .title-container {
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+//         justify-content: center;
+//         gap: 20px;
+//     }
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     flex-direction: column;
+//     h1 {
+//       text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+//       color: #3779de;
+//       font-size: 3em;
+//       font-weight: 700;
+//       margin: 0;
+//     }
+//     .game-field {
+//         display: flex;
+//         .scores {
+//             padding: 5px;
+//             font-size: 2em;
+//             color: #fff;
+//             writing-mode: vertical-rl;
+//             text-orientation: upright;
+//         }
+//         .scores-player {
+//           letter-spacing: 6px;
+//         }
+//         .player-score-count {
+//             transform: translateX(-20px);
+//             color: #fff;
+//             writing-mode: vertical-rl;
+//             text-orientation: upright;
+//         }
+//         .matrix-container {
+//             box-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+//             border: 5px solid #3779de;
+//             width: fit-content;
+//             padding: 15px;
+//             border-radius: 10px;
+//             display: flex;
+//             flex-direction: column;
+//             gap: 3px; /* Vertical gap between rows */
+//             justify-content: center;
+//             align-items: center;
+//           }
+//     }
+//       .row {
+//         display: flex;
+//         gap: 3px; /* Horizontal gap between cells */
+//       }
+//       .game-controls-container {
+//         display: flex;
+//         gap: 10px;
+//         margin-top: 10px;
+//         flex-direction: row;
+//         margin-bottom: 10px;
+//         .controls {
+//           border-top-left-radius: 5px;
+//           border-top-right-radius: 5px;
+//         }
+//       }
+//   }
     

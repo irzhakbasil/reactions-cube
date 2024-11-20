@@ -1,51 +1,51 @@
-.game-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    .title-container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        gap: 20px;
-    }
-    .game-desc {
-      width: 500px;
-      color: #ffff;
-      margin-bottom: 20px;
-    }
-    h1 {
-      text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
-      color: #3779de;
-      font-size: 3em;
-      font-weight: 700;
-      margin: 0;
-    }
-    .game-start-div {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      button {
-        height: 100%;
-        width: 100%;
-        background-color: #3779de;
-        font-size: 3em;
-        font-family: 'Doto';
-        font-weight: 700;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-    .message {
-      color: #ffff;
-      margin: 20px 0;
-      font-size: 1.2em;
-      font-weight: bold;
-      text-align: center;
-    }
-    .hight-scores {
-      color: #ffff;
-    }
-}
+// .game-container {
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     flex-direction: column;
+//     .title-container {
+//         display: flex;
+//         flex-direction: row;
+//         align-items: center;
+//         justify-content: center;
+//         gap: 20px;
+//     }
+//     .game-desc {
+//       width: 500px;
+//       color: #ffff;
+//       margin-bottom: 20px;
+//     }
+//     h1 {
+//       text-shadow: 1px 1px 2px red, 0 0 1em blue, 0 0 0.2em blue;
+//       color: #3779de;
+//       font-size: 3em;
+//       font-weight: 700;
+//       margin: 0;
+//     }
+//     .game-start-div {
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//       button {
+//         height: 100%;
+//         width: 100%;
+//         background-color: #3779de;
+//         font-size: 3em;
+//         font-family: 'Doto';
+//         font-weight: 700;
+//         &:hover {
+//           cursor: pointer;
+//         }
+//       }
+//     }
+//     .message {
+//       color: #ffff;
+//       margin: 20px 0;
+//       font-size: 1.2em;
+//       font-weight: bold;
+//       text-align: center;
+//     }
+//     .hight-scores {
+//       color: #ffff;
+//     }
+// }
