@@ -18,7 +18,6 @@ export class CommonButtonComponent implements AfterContentInit {
   }
   @Input() set buttonClass(className: string) {
     if(className) {
-      console.log(className)
       this._className = className
     }
   }

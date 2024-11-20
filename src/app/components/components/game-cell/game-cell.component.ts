@@ -58,6 +58,7 @@ export class GameCellComponent {
           cellCondition: this.gameCellCondition,
           playerReactionTime: reactionTime
         });
+        // this information we can use to show high scores for example
         console.log(`User clicked in ${reactionTime} ms`);
       }
     }
