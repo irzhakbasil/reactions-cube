@@ -94,6 +94,12 @@ export class MainGameComponent implements OnInit {
     }
   }
 
+  decreaseSize() {
+    if (this.cubeSize > this.minCubeSize) {
+      this.cubeSize--;
+    }
+  }
+
   checkGameResults(event: RoundResults) {
     if(event.cellCondition === GameCellConditionEnum.COMPUTER_WIN) {
       this.handleComputerRoundWin()
@@ -129,12 +135,6 @@ export class MainGameComponent implements OnInit {
     this.modalService.open(ModalComponent, {title: 'game results', data: `
     <span>Player wins: ${this.playerWins}, Computer wins: ${this.computerWins}</span>
   `})
-  }
-
-  decreaseSize() {
-    if (this.cubeSize > this.minCubeSize) {
-      this.cubeSize--;
-    }
   }
 
   createGameMatrix() {
