@@ -40,7 +40,7 @@ export class GameMatixService {
 
         if (emptyCells.length > 0) {
           const [row, col] = emptyCells[Math.floor(Math.random() * emptyCells.length)];
-          // by changing the the link  we trigger the change detection
+          // by changing the new link we trigger the change detection
           matrixCopy[row][col] = { miliseconds: milisecondsTime };
         }
         cdRef.markForCheck();
