@@ -69,10 +69,7 @@ export class GameCellComponent {
     this.isCounterStarted = true;
     this.startTime = Date.now();
     timer(timeInMilliseconds).pipe(
-      takeUntil(this.stopCounter$),
-      finalize(() => {
-
-      })
+      takeUntil(this.stopCounter$)
     ).subscribe(res=> {
       this.isCounterStarted = false;
       this.gameCellCondition = GameCellConditionEnum.COMPUTER_WIN;
