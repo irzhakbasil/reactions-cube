@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ConditionalBackgroundDirective } from '../../../directives/background.directive';
-import { GameCellConditionEnum } from '../../../enums/app-enums';
+import { GameCellConditionEnum } from '../../../enums/game-cell-conditions.enums';
 
 @Component({
   selector: 'app-reaction-cube',

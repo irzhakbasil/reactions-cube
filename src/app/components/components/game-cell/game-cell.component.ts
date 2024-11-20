@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
 import { Subject, timer } from 'rxjs';
 import { finalize, takeUntil } from 'rxjs/operators';
-import { GameCellConditionEnum } from '../../../enums/app-enums';
+import { GameCellConditionEnum } from '../../../enums/game-cell-conditions.enums';
 import { ConditionalBackgroundDirective } from '../../../directives/background.directive';
 import { gameCellObject } from '../../../interfaces/cameCellObjectInterface';
 import { GameNames } from '../../../app.component';
