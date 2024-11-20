@@ -1,7 +1,12 @@
 .dvs-validation-errors {
     margin: 0;
     padding: 0;
+    position: relative;
         span {
+        left: -85px;
+        top: -2px;
+        width: 200px;
+        position: absolute;
         margin-top: 4px;
         color: white;
         font-size: 0.8rem;

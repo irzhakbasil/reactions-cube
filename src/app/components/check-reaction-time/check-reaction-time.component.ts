@@ -45,7 +45,7 @@ export class CheckReactionTimeComponent {
       this.disableClick = true;
     }
     
-    timer(3000).subscribe(()=>{
+    timer(2000).subscribe(()=>{
       this.isGameStarted = false;
       if (this.reactionCube) {
         this.reactionCube.reset();

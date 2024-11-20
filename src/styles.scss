@@ -191,7 +191,7 @@ input {
 
   .game-controls-container {
     @include flexbox(row, center, center, map-get($spacing, 'md'));
-    margin: map-get($spacing, 'md') 0;
+    margin: map-get($spacing, 'xl') 0;
 
     .controls {
       border-top-left-radius: map-get($border-radius, 'sm');
