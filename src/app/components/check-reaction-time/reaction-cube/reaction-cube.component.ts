@@ -24,7 +24,7 @@ export class ReactionCubeComponent {
     }
   }
 
-  startCounter() {
+  private startCounter() {
     const randomDelay = Math.floor(Math.random() * (5000 - 2000 + 1)) + 2000; // 2-5 seconds
     this.changeTimeout = setTimeout(() => {
       this.gameCellCondition = GameCellConditionEnum.PANDING;

@@ -63,7 +63,7 @@ export class MainGameComponent implements OnInit {
     this.subscribeToFormControl()
   }
 
-  subscribeToFormControl(){
+  private subscribeToFormControl(){
     this.inputFormControl.valueChanges.subscribe()
   }
 
@@ -75,16 +75,12 @@ export class MainGameComponent implements OnInit {
     }
   }
 
-  startGame() {
+  private startGame() {
     if(this.inputFormControl.value > 0) {
       this.inputFormControl.disable();
       this.gameStatusText = GameStatusTextTextEnum.GAME_IN_PROGRESS;
       this.gameMatrixService.startGame(this.matrix, this.inputFormControl.value, 2500, this.cdRef).subscribe();
     }
-  }
-
-  stopGame() {
-    this.gameMatrixService.stopGame()
   }
 
   increaseSize() {
@@ -131,17 +127,17 @@ export class MainGameComponent implements OnInit {
     }
   }
 
-  showResultsModal() {
+  private showResultsModal() {
     this.modalService.open(ModalComponent, {title: 'game results', data: `
     <span>Player wins: ${this.playerWins}, Computer wins: ${this.computerWins}</span>
   `})
   }
 
-  createGameMatrix() {
+  private createGameMatrix() {
     this.matrix = this.gameMatrixService.createMatrix(10, 10) 
   }
 
-  resetGame() {
+  private resetGame() {
     this.gameStatusText = GameStatusTextTextEnum.START_GAME;
     this.createGameMatrix();
     this.title = GameTitlesEnum.MAIN;
