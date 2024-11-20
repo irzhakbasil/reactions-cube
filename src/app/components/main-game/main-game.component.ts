@@ -8,9 +8,9 @@ import { GameStatusTextTextEnum } from '../../enums/main-action-button-text.enum
 import { GameMatixService } from '../../services/game-matrix.service';
 import { GameCellConditionEnum } from '../../enums/app-colors-enum';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { ModalService } from '../../shared/components/modal-component/modal.service';
+import { ModalComponent } from '../../shared/components/modal-component/modal.component';
 import { GameCellComponent, RoundResults } from '../components/game-cell/game-cell.component';
-import { ModalService } from '../../shared/modal-component/modal.service';
-import { ModalComponent } from '../../shared/modal-component/modal.component';
 
 enum GameTitlesEnum {
   MAIN = 'reaction cube',
@@ -41,7 +41,7 @@ export class MainGameComponent implements OnInit {
   matrix: gameCellObject[][] = [];
   playerWins = 0;
   computerWins = 0;
-  maxScore = 1;
+  maxScore = 10;
   defaultReactionTime = 800; // ms
 
   inputFormControl = new FormControl(this.defaultReactionTime, {nonNullable: true, validators: Validators.required})
@@ -106,23 +106,29 @@ export class MainGameComponent implements OnInit {
   private handleComputerRoundWin(): void {
     this.computerWins++;
     if (this.computerWins === this.maxScore) {
+      this.inputFormControl.enable();
       this.gameMatrixService.stopGame();
       this.title = GameTitlesEnum.COMPUTER_WON;
       this.gameStatusText = GameStatusTextTextEnum.RESET;
-      this.modalService.open(ModalComponent, {title: 'game results', data: `
-        <span>Player wins: ${this.playerWins}, Computer wins: ${this.computerWins}</span>
-      `})
-
+      this.showResultsModal()
     }
   }
 
   private handlePlayerRoundWin(): void {
     this.playerWins++;
     if (this.playerWins === this.maxScore) {
+      this.inputFormControl.enable();
       this.gameMatrixService.stopGame();
       this.title = GameTitlesEnum.PLAYER_WON;
       this.gameStatusText = GameStatusTextTextEnum.RESET;
+      this.showResultsModal()
     }
+  }
+
+  showResultsModal() {
+    this.modalService.open(ModalComponent, {title: 'game results', data: `
+    <span>Player wins: ${this.playerWins}, Computer wins: ${this.computerWins}</span>
+  `})
   }
 
   decreaseSize() {

@@ -22,6 +22,7 @@ export class AppComponent {
   gameNamesEnum = GameNames;
   selectedGame: GameNames | null = null;
 
+  selectButtonsWith = 450;
 
   gameSelected(event: string) {
     this.selectedGame = event as GameNames;

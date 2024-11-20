@@ -2,15 +2,17 @@
   <div class="game-selection-container">
     <h1>{{ title | uppercase }}</h1>
     <app-button
-      [buttonIdentifier]="gameNamesEnum.PLAYER_REACTION_TIME"
-      (buttonClicked)="gameSelected($event)" 
-      [buttonText]="'Player reaction check'"
-      ></app-button>
-    <app-button 
+      [width]="selectButtonsWith"
       [buttonIdentifier]="gameNamesEnum.REACTION_CUBE"
       (buttonClicked)="gameSelected($event)" 
       [buttonText]="'Reaction cube'"
     ></app-button>
+    <app-button
+      [width]="selectButtonsWith"
+      [buttonIdentifier]="gameNamesEnum.PLAYER_REACTION_TIME"
+      (buttonClicked)="gameSelected($event)" 
+      [buttonText]="'Player reaction check'"
+      ></app-button>
   </div>
 }
 
@@ -22,6 +24,6 @@
 
 @if(selectedGame === gameNamesEnum.PLAYER_REACTION_TIME) {
   @defer {
-    <app-check-reaction-time></app-check-reaction-time>
+    <app-check-reaction-time (closeGame)="closeCurrentGame()"></app-check-reaction-time>
   }
 }

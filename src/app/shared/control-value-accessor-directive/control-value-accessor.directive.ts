@@ -51,6 +51,7 @@ export class ControlValueAccessorDirective<T>
   }
 
   writeValue(value: T): void {
+    console.log(value)
     this.control
       ? this.control.setValue(value)
       : (this.control = new FormControl(value));

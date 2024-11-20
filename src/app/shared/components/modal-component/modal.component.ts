@@ -13,8 +13,8 @@ import { animate, style, transition, trigger } from '@angular/animations';
           <h2>{{ title }}</h2>
           <button class="close-button" (click)="close()">&times;</button>
         </div>
+        <!-- Obviously, the more expensive solution is not for the test task -->
         <div class="modal-content" [innerHTML]="data">
-        
           <ng-content></ng-content>
         </div>
         <div class="modal-footer" *ngIf="showFooter">

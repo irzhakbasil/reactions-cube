@@ -9,6 +9,7 @@
       [type]="type"
       [id]="inputId"
       [formControl]="control"
+      (blur)="onBlur($event)"
     />
     <app-validation-errors
         [customErrorMessages]="customErrorMessages"

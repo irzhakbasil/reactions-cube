@@ -1,4 +1,4 @@
-<div class="app-container">
+<div class="game-container">
     <div class="title-container">
         <app-button 
             [buttonClass]="'black-button'"
@@ -20,7 +20,7 @@
             ></app-button>
       </div>
       <app-input
-        [type]="'number'" 
+        [type]="'positive-numbers'" 
         [placeholder]="'time in millisecons'" 
         [formControl]="inputFormControl"
         ></app-input>
@@ -33,7 +33,7 @@
         ></app-button>
     </div>
     <div class="game-field">
-        <span class="scores">{{'Player '| uppercase}}<span class="player-score-count">{{playerWins}}</span></span>
+        <span class="scores scores-player">{{'Player '| uppercase}}<span class="player-score-count">{{playerWins}}</span></span>
         <div class="matrix-container">
             <ng-container *ngFor="let row of matrix; let i = index">
               <div class="row">

@@ -23,3 +23,7 @@ input::placeholder {
     font-style: italic;
     font-size: 11px;
    }
+
+input:disabled {
+  background-color: #ccc;
+}

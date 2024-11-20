@@ -1,1 +1,29 @@
-<p>check-reaction-time works!</p>
+<div class="game-container">
+    <div class="title-container">
+        <app-button 
+            [buttonClass]="'black-button'"
+            (click)="goBack()"
+            [buttonText]="'<='"></app-button>
+        <h1>{{ title | uppercase }}</h1>
+    </div>
+    <span class="game-desc">A few seconds after you press "start" the color of the cube will change and as soon as it changes you must click on it to measure the reaction speed.</span>
+    @if(!isGameStarted) {
+        <div class="game-start-div"
+            [style.width.px]="cubeSize"
+            [style.height.px]="cubeSize">
+            <button (click)="startGame()">START</button>
+        </div>
+    } @else {
+        <app-reaction-cube
+            [disableClick]="disableClick"
+            [counterStarted]="true"
+            (cubeClicked)="onCubeClicked($event)">
+        </app-reaction-cube>
+    }
+    @if(highScores) {
+        <span class="hight-scores">Best result:{{highScores}}</span>
+    }
+    @if(message) {
+        <div class="message">{{ message }}</div>
+    }
+</div>

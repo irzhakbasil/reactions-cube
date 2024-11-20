@@ -1,4 +1,4 @@
-.app-container {
+.game-container {
     .title-container {
         display: flex;
         flex-direction: row;
@@ -16,7 +16,6 @@
       font-size: 3em;
       font-weight: 700;
       margin: 0;
-  
     }
     .game-field {
         display: flex;
@@ -27,9 +26,11 @@
             writing-mode: vertical-rl;
             text-orientation: upright;
         }
+        .scores-player {
+          letter-spacing: 6px;
+        }
         .player-score-count {
             transform: translateX(-20px);
-            padding-top: 39px;
             color: #fff;
             writing-mode: vertical-rl;
             text-orientation: upright;
