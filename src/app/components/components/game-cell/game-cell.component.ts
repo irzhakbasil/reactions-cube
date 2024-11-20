@@ -81,9 +81,4 @@ export class GameCellComponent {
       this.cdRef.markForCheck();
     });
   }
-
-  firstElement<T>(arr: T[]): T | undefined {
-    return arr[0];
-  }
-
 }
