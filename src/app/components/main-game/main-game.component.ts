@@ -10,7 +10,7 @@ import { GameCellConditionEnum } from '../../enums/game-cell-conditions.enums';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ModalService } from '../../shared/components/modal-component/modal.service';
 import { ModalComponent } from '../../shared/components/modal-component/modal.component';
-import { GameCellComponent, RoundResults } from '../components/game-cell/game-cell.component';
+import { GameCellComponent, RoundResults } from './game-cell/game-cell.component';
 
 enum GameTitlesEnum {
   MAIN = 'reaction cube',
