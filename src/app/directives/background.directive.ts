@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Renderer2, Input, OnChanges } from '@angular/core';
-import { GameCellConditionEnum } from '../enums/app-colors-enum';
+import { GameCellConditionEnum } from '../enums/app-enums';
 
 @Directive({
   selector: '[appConditionalBackground]',

@@ -6,7 +6,7 @@ import { InputComponent } from '../../shared/components/common-input/common-inpu
 import { gameCellObject } from '../../interfaces/cameCellObjectInterface';
 import { GameStatusTextTextEnum } from '../../enums/main-action-button-text.enum';
 import { GameMatixService } from '../../services/game-matrix.service';
-import { GameCellConditionEnum } from '../../enums/app-colors-enum';
+import { GameCellConditionEnum } from '../../enums/app-enums';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ModalService } from '../../shared/components/modal-component/modal.service';
 import { ModalComponent } from '../../shared/components/modal-component/modal.component';
