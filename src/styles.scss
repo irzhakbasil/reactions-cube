@@ -17,7 +17,11 @@ $colors: (
   'disabled': #ccc,
   'placeholder': #999,
   'shadow-red': red,
-  'shadow-blue': blue
+  'shadow-blue': blue,
+  'pending': #efef1d,
+  'player-win': #5cd35c,
+  'computer-win': #d3255f,
+  'default': #3779de
 );
 
 $font-sizes: (
@@ -198,20 +202,20 @@ input {
       border-top-right-radius: map-get($border-radius, 'sm');
     }
   }
-  
+
   .bg-pending {
-    background-color: #efef1d;
+    background-color: map-get($colors, 'pending');
   }
   
   .bg-player-win {
-    background-color: #5cd35c;
+    background-color: map-get($colors, 'player-win');
   }
   
   .bg-computer-win {
-    background-color: #d3255f;
+    background-color: map-get($colors, 'computer-win');
   }
   
   .bg-default {
-    background-color: #3779de;
+    background-color: map-get($colors, 'default');
   }
 }
