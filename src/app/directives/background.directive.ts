@@ -7,30 +7,35 @@ import { GameCellConditionEnum } from '../enums/game-cell-conditions.enums';
 })
 export class ConditionalBackgroundDirective implements OnChanges {
   @Input() appConditionalBackground!: GameCellConditionEnum;
+  private currentClass: string | null = null;
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
   ngOnChanges(): void {
-    this.updateBackgroundColor();
+    this.updateClass();
   }
 
-  private updateBackgroundColor(): void {
-    let backgroundColor: string;
-
+  private updateClass(): void {
+    // Remove previous class if it exists
+    if (this.currentClass) {
+      this.renderer.removeClass(this.el.nativeElement, this.currentClass);
+    }
+    let newClass: string;
     switch (this.appConditionalBackground) {
       case GameCellConditionEnum.PANDING:
-        backgroundColor = '#efef1d';
+        newClass = 'bg-pending';
         break;
       case GameCellConditionEnum.PLAYER_WIN:
-        backgroundColor = '#5cd35c';
+        newClass = 'bg-player-win';
         break;
       case GameCellConditionEnum.COMPUTER_WIN:
-        backgroundColor = '#d3255f';
+        newClass = 'bg-computer-win';
         break;
       default:
-        backgroundColor = '#3779de';
+        newClass = 'bg-default';
     }
 
-    this.renderer.setStyle(this.el.nativeElement, 'background-color', backgroundColor);
+    this.renderer.addClass(this.el.nativeElement, newClass);
+    this.currentClass = newClass;
   }
 }
