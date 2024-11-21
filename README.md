@@ -1,3 +1,4 @@
+Test task for job application.
 
 ## Development server
 
