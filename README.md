@@ -2,3 +2,6 @@
 New game is kinda mix of both old games.
 Currently, I’m working regularly with Claude AI. I provided it with instructions, conducted a code review, and fixed the bugs.
 Also I asked Claude to do refactoring, design and animations for the new game.
+
+#Features
+My custom input component doesn’t allow entering numbers that start with a zero or multiple zeros and prevent any characters.
