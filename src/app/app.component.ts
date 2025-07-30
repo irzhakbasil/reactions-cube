@@ -1,4 +1,5 @@
-import {Component } from '@angular/core';
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import { MainGameComponent } from './components/main-game/main-game.component';
 import { CommonButtonComponent } from './shared/components/common-button/common-button.component';
 import { CheckReactionTimeComponent } from './components/check-reaction-time/check-reaction-time.component';
@@ -13,7 +14,7 @@ export enum GameNames {
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  imports: [MainGameComponent, CommonButtonComponent, CheckReactionTimeComponent, CommonModule]
+  imports: [RouterOutlet, MainGameComponent, CommonButtonComponent, CheckReactionTimeComponent, CommonModule]
 })
 export class AppComponent {
 

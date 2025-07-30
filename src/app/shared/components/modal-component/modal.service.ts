@@ -8,6 +8,7 @@ import {
     ComponentRef,
     Injector
   } from '@angular/core';
+  import { Subject } from 'rxjs';
   import { ModalComponent } from './modal.component';
   
   @Injectable({
@@ -22,6 +23,7 @@ import {
     ) {}
   
     open(content: Type<any>, config: { title?: string; data?: any } = {}) {
+      const closedSubject = new Subject<void>();
       const modalHost = document.createElement('div');
       document.body.appendChild(modalHost);
   
@@ -57,6 +59,8 @@ import {
       modalComponentRef.instance.isOpenChange.subscribe((isOpen: boolean) => {
         if (!isOpen) {
           this.closeModal(modalComponentRef, contentComponentRef, modalHost);
+          closedSubject.next();
+          closedSubject.complete();
         }
       });
   
@@ -65,7 +69,10 @@ import {
       this.appRef.attachView(modalComponentRef.hostView);
       this.appRef.attachView(contentComponentRef.hostView);
   
-      return modalComponentRef;
+      return {
+        componentRef: modalComponentRef,
+        closed$: closedSubject.asObservable()
+      };
     }
   
     private closeModal(

@@ -1,0 +1,15 @@
+<div *ngIf="isOpen" class="modal-overlay" (click)="onOverlayClick($event)">
+  <div class="modal-container" [@modalAnimation]>
+    <div class="modal-header">
+      <h2>{{ title }}</h2>
+      <button class="close-button" (click)="close()">&times;</button>
+    </div>
+    <!-- Obviously, the more expensive solution is not for the test task -->
+    <div class="modal-content" [innerHTML]="data">
+      <ng-content></ng-content>
+    </div>
+    <div class="modal-footer" *ngIf="showFooter">
+      <ng-content select="[modal-footer]"></ng-content>
+    </div>
+  </div>
+</div>

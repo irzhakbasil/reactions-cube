@@ -70,7 +70,7 @@ export class MainGameComponent implements OnInit {
   mainActionButtonClicked() {
     if(this.gameStatusText === GameStatusTextTextEnum.START_GAME) {
       this.startGame();
-    } else if(this.gameStatusText = GameStatusTextTextEnum.RESET) {
+    } else if(this.gameStatusText === GameStatusTextTextEnum.RESET) {
       this.resetGame();
     }
   }

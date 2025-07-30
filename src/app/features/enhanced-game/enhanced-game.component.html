@@ -1,0 +1,150 @@
+<div class="enhanced-game-container">
+  <!-- Header Section -->
+  <header class="game-header">
+    <h1 class="game-title">{{ gameTitle() }}</h1>
+    <div class="game-stats">
+      <div class="score-display">
+        <span class="player-score">Player: {{ stats().playerScore }}</span>
+        <span class="computer-score">Computer: {{ stats().computerScore }}</span>
+      </div>
+      <div class="performance-metrics" *ngIf="showMetrics()">
+        <span class="accuracy">Accuracy: {{ stats().accuracy | number:'1.1-1' }}%</span>
+        <span class="avg-time" *ngIf="stats().averageReactionTime > 0">
+          Avg: {{ stats().averageReactionTime | number:'1.0-0' }}ms
+        </span>
+        <span class="best-time" *ngIf="stats().bestReactionTime < Infinity">
+          Best: {{ stats().bestReactionTime | number:'1.0-0' }}ms
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Configuration Panel -->
+  <div class="config-panel" [class.disabled]="isGameActive()">
+    <form [formGroup]="configForm" class="config-form">
+      <div class="form-row">
+        <label>
+          Difficulty:
+          <select formControlName="difficulty" class="difficulty-select">
+            <option *ngFor="let diff of difficulties" [value]="diff.value">
+              {{ diff.label }}
+            </option>
+          </select>
+        </label>
+        
+        <div class="custom-input-wrapper">
+          <app-input
+            label="Reaction Time (ms)"
+            type="positive-numbers"
+            placeholder="200-3000"
+            inputId="reactionTime"
+            width="180"
+            formControlName="reactionTime"
+            [customErrorMessages]="{
+              'required': 'Reaction time is required',
+              'min': 'Minimum 200ms required',
+              'max': 'Maximum 3000ms allowed'
+            }"
+          ></app-input>
+        </div>
+        
+        <div class="grid-size-control">
+          <label class="grid-size-label">
+            Grid Size: {{ configForm.get('gridSize')?.value }}x{{ configForm.get('gridSize')?.value }}
+          </label>
+          <input 
+            type="range" 
+            formControlName="gridSize"
+            min="5"
+            max="15"
+            class="size-slider"
+          >
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Game Controls -->
+  <div class="game-controls">
+    <button 
+      *ngIf="currentState() === GameState.IDLE"
+      (click)="startGame()"
+      [disabled]="configForm.invalid"
+      class="start-button primary-button"
+    >
+      Start Game
+    </button>
+    
+    <button 
+      *ngIf="currentState() === GameState.PLAYING"
+      (click)="pauseGame()"
+      class="pause-button secondary-button"
+    >
+      Pause
+    </button>
+    
+    <button 
+      *ngIf="currentState() === GameState.PAUSED"
+      (click)="resumeGame()"
+      class="resume-button primary-button"
+    >
+      Resume
+    </button>
+    
+    <button 
+      *ngIf="currentState() !== GameState.IDLE"
+      (click)="stopGame()"
+      class="stop-button danger-button"
+    >
+      Stop
+    </button>
+    
+    <button 
+      *ngIf="currentState() === GameState.FINISHED"
+      (click)="resetGame()"
+      class="reset-button primary-button"
+    >
+      Play Again
+    </button>
+  </div>
+
+  <!-- Game Grid -->
+  <div 
+    class="game-grid" 
+    [ngStyle]="getGridStyles()"
+  >
+    <div
+      *ngFor="let row of grid(); trackBy: trackByRow"
+      class="grid-row"
+    >
+      <div
+        *ngFor="let cell of row; trackBy: trackByCell"
+        class="game-cell"
+        [class]="getCellClasses(cell)"
+        [attr.data-cell-id]="cell.id"
+        (click)="onCellClick(cell.id)"
+        [style.animation-duration]="getAnimationDuration(cell) + 'ms'"
+      >
+        <div class="cell-content">
+          <span *ngIf="cell.reactionTime" class="reaction-time">
+            {{ cell.reactionTime }}ms
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Progress Indicator -->
+  <div class="progress-section" *ngIf="isGameActive()">
+    <div class="progress-bar">
+      <div 
+        class="progress-fill" 
+        [style.width]="getProgressPercentage() + '%'"
+      ></div>
+    </div>
+    <span class="progress-text">
+      Round {{ stats().totalRounds + 1 }} | 
+      Next target in {{ config().maxScore - Math.max(stats().playerScore, stats().computerScore) }} points
+    </span>
+  </div>
+</div>

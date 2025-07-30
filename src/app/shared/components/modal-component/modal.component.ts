@@ -6,23 +6,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
   selector: 'app-modal',
   standalone: true,
   imports: [CommonModule],
-  template: `
-    <div *ngIf="isOpen" class="modal-overlay" (click)="onOverlayClick($event)">
-      <div class="modal-container" [@modalAnimation]>
-        <div class="modal-header">
-          <h2>{{ title }}</h2>
-          <button class="close-button" (click)="close()">&times;</button>
-        </div>
-        <!-- Obviously, the more expensive solution is not for the test task -->
-        <div class="modal-content" [innerHTML]="data">
-          <ng-content></ng-content>
-        </div>
-        <div class="modal-footer" *ngIf="showFooter">
-          <ng-content select="[modal-footer]"></ng-content>
-        </div>
-      </div>
-    </div>
-  `,
+  templateUrl: './modal.component.html',
   styles: [`
     .modal-overlay {
       position: fixed;
@@ -30,53 +14,73 @@ import { animate, style, transition, trigger } from '@angular/animations';
       left: 0;
       width: 100%;
       height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 1000;
+      backdrop-filter: blur(4px);
     }
 
     .modal-container {
       background: white;
-      border-radius: 4px;
-      padding: 20px;
-      min-width: 300px;
+      border-radius: 12px;
+      padding: 2rem;
+      min-width: 320px;
       max-width: 90%;
       max-height: 90vh;
       overflow-y: auto;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     .modal-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 16px;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid #e2e8f0;
     }
 
     .modal-header h2 {
       margin: 0;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #2d3748;
+      line-height: 1.2;
     }
 
     .close-button {
       border: none;
       background: none;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       cursor: pointer;
-      padding: 0;
+      padding: 0.25rem;
       line-height: 1;
+      color: #718096;
+      border-radius: 0.375rem;
+      transition: all 0.15s ease;
+      
+      &:hover {
+        background-color: #f7fafc;
+        color: #2d3748;
+      }
     }
 
     .modal-content {
-      margin-bottom: 16px;
+      margin-bottom: 1.5rem;
+      color: #4a5568;
+      line-height: 1.6;
+      font-size: 1rem;
     }
 
     .modal-footer {
       display: flex;
       justify-content: flex-end;
-      gap: 8px;
+      gap: 12px;
+      padding-top: 1rem;
+      border-top: 1px solid #e2e8f0;
     }
   `],
   animations: [

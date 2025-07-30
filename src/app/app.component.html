@@ -1,29 +1,34 @@
-@if (!selectedGame) {
-  <div class="game-selection-container">
-    <h1>{{ title | uppercase }}</h1>
-    <app-button
-      [width]="selectButtonsWith"
-      [buttonIdentifier]="gameNamesEnum.REACTION_CUBE"
-      (buttonClicked)="gameSelected($event)" 
-      [buttonText]="'Reaction cube'"
-    ></app-button>
-    <app-button
-      [width]="selectButtonsWith"
-      [buttonIdentifier]="gameNamesEnum.PLAYER_REACTION_TIME"
-      (buttonClicked)="gameSelected($event)" 
-      [buttonText]="'Player reaction check'"
+<router-outlet></router-outlet>
+
+<!-- legacy games section -->
+<!-- <div class="legacy-games" style="display: none;">
+  @if (!selectedGame) {
+    <div class="game-selection-container">
+      <h1>{{ title | uppercase }}</h1>
+      <app-button
+        [width]="selectButtonsWith"
+        [buttonIdentifier]="gameNamesEnum.REACTION_CUBE"
+        (buttonClicked)="gameSelected($event)" 
+        [buttonText]="'Reaction cube'"
       ></app-button>
-  </div>
-}
-
-@if(selectedGame === gameNamesEnum.REACTION_CUBE) {
-  @defer {
-    <app-main-game (closeGame)="closeCurrentGame()"></app-main-game>
+      <app-button
+        [width]="selectButtonsWith"
+        [buttonIdentifier]="gameNamesEnum.PLAYER_REACTION_TIME"
+        (buttonClicked)="gameSelected($event)" 
+        [buttonText]="'Player reaction check'"
+        ></app-button>
+    </div>
   }
-}
 
-@if(selectedGame === gameNamesEnum.PLAYER_REACTION_TIME) {
-  @defer {
-    <app-check-reaction-time (closeGame)="closeCurrentGame()"></app-check-reaction-time>
+  @if(selectedGame === gameNamesEnum.REACTION_CUBE) {
+    @defer {
+      <app-main-game (closeGame)="closeCurrentGame()"></app-main-game>
+    }
   }
-}
+
+  @if(selectedGame === gameNamesEnum.PLAYER_REACTION_TIME) {
+    @defer {
+      <app-check-reaction-time (closeGame)="closeCurrentGame()"></app-check-reaction-time>
+    }
+  }
+</div> -->
