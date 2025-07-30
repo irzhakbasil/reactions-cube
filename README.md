@@ -4,4 +4,5 @@ Currently, I’m working regularly with Claude AI. I provided it with instructio
 Also I asked Claude to do refactoring, design and animations for the new game.
 
 #Features
-My custom input component doesn’t allow entering numbers that start with a zero or multiple zeros and prevent any characters.
+- My custom input component doesn’t allow entering numbers that start with a zero or multiple zeros and prevent any characters.
+- In the previous version, the cubes didn't change color strictly on a timer — they changed at different times to create a surprise effect
